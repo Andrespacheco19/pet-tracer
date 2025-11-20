@@ -1,0 +1,293 @@
+<!-- Header -->
+<header class="header">
+  <nav class="nav-container">
+    <div class="nav-content">
+      <div class="logo-section">
+        <div class="logo-circle">
+          <mat-icon>pets</mat-icon>
+        </div>
+        <span class="brand-name">Petracer</span>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="desktop-menu">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#funcionalidades" class="nav-link">Funcionalidades</a>
+        <a href="#nosotros" class="nav-link">Nosotros</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+        <button (click)="openLogin()" class="btn-primary">
+          Iniciar Sesión
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn" (click)="toggleMenu()">
+        <i [class]="isMenuOpen ? 'icon-x' : 'icon-menu'"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" *ngIf="isMenuOpen">
+      <a href="#inicio" class="mobile-nav-link">Inicio</a>
+      <a href="#funcionalidades" class="mobile-nav-link">Funcionalidades</a>
+      <a href="#nosotros" class="mobile-nav-link">Nosotros</a>
+      <a href="#contacto" class="mobile-nav-link">Contacto</a>
+      <button (click)="openLogin()" class="btn-primary-mobile">
+        Iniciar Sesión
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section id="inicio" class="hero-section">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <h1 class="hero-title">Tu mascota más cerca que nunca</h1>
+        <p class="hero-subtitle">
+          Sistema inteligente de monitoreo con IA para vigilar y detectar el comportamiento de tus mascotas en tiempo real
+        </p>
+        <div class="hero-buttons">
+          <button (click)="openRegister()" class="btn-primary-lg">
+            Comenzar Ahora
+          </button>
+          <button class="btn-secondary-lg">
+            Ver Demo
+          </button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-card">
+          <div class="hero-card-bg">
+            <i class="icon-camera-large"></i>
+          </div>
+          <div class="status-card">
+            <div class="status-content">
+              <div class="status-icon">
+                <i class="icon-heart"></i>
+              </div>
+              <div>
+                <p class="status-title">Estado: Normal</p>
+                <p class="status-subtitle">Max está descansando</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section id="funcionalidades" class="features-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Funcionalidades Inteligentes</h2>
+      <p class="section-subtitle">Tecnología avanzada para el bienestar de tu mascota</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features">
+        <div class="feature-icon">
+          <i [class]="'icon-' + feature.icon"></i>
+        </div>
+        <h3 class="feature-title">{{ feature.title }}</h3>
+        <p class="feature-desc">{{ feature.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="nosotros" class="about-section">
+  <div class="container">
+    <div class="about-content">
+      <div class="about-block">
+        <h2 class="about-title">Nuestra Misión</h2>
+        <p class="about-text">
+          Brindar a los dueños de mascotas tranquilidad y seguridad mediante un sistema inteligente de monitoreo que utiliza inteligencia artificial para vigilar y detectar el comportamiento de sus animales en tiempo real.
+        </p>
+      </div>
+
+      <div class="about-block">
+        <h2 class="about-title">Nuestra Visión</h2>
+        <p class="about-text">
+          Convertirnos en la solución líder en vigilancia inteligente para mascotas en Latinoamérica, destacándonos por nuestra innovación, confianza y compromiso con el bienestar animal.
+        </p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card" *ngFor="let value of values">
+          <h3 class="value-title">{{ value }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2 class="cta-title">¿Listo para tener a tu mascota más cerca?</h2>
+      <p class="cta-subtitle">
+        Únete a miles de dueños que confían en Petracer
+      </p>
+      <button (click)="openRegister()" class="btn-cta">
+        Registrarse Gratis
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="contacto" class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <i class="icon-camera-footer"></i>
+        <span class="footer-brand">Petracer</span>
+      </div>
+      <p class="footer-slogan">Tu mascota más cerca que nunca</p>
+      <p class="footer-copyright">© 2024 Petracer. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Login Modal -->
+<div class="modal-overlay" *ngIf="showLogin" (click)="closeLogin()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="modal-close" mat-button (click)="closeLogin()">
+      <mat-icon>close</mat-icon>
+    </button>
+    
+    <h2 class="modal-title">Iniciar Sesión</h2>
+    
+    <div class="form-group">
+      <label class="form-label">Correo Electrónico</label>
+      <input
+        type="email"
+        class="form-input"
+        placeholder="tu@email.com"
+      />
+    </div>
+    
+    <div class="form-group">
+      <label class="form-label">Contraseña</label>
+      <div class="password-wrapper">
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          class="form-input"
+          placeholder="••••••••"
+        />
+        <button
+          type="button"
+          (click)="togglePassword()"
+          class="password-toggle"
+        >
+            <mat-icon>
+                
+                {{showPassword ? 'visibility_off' : 'visibility'}}
+            </mat-icon>
+          
+        </button>
+      </div>
+    </div>
+    
+    <button (click)="handleLogin()" class="btn-modal">
+      Ingresar
+    </button>
+    
+    <p class="modal-footer-text">
+      ¿No tienes cuenta?
+      <button (click)="switchToRegister()" class="modal-link">
+        Regístrate aquí
+      </button>
+    </p>
+  </div>
+</div>
+
+<!-- Register Modal -->
+<div class="modal-overlay" *ngIf="showRegister" (click)="closeRegister()">
+  <div class="modal-content modal-scroll" (click)="$event.stopPropagation()">
+    <button class="modal-close" mat-button (click)="closeRegister()">
+      <mat-icon>close</mat-icon>
+    </button>
+    
+    <h2 class="modal-title">Crear Cuenta</h2>
+    
+    <div class="form-group">
+      <label class="form-label">Nombre Completo</label>
+      <input
+        type="text"
+        class="form-input"
+        placeholder="Juan Pérez"
+      />
+    </div>
+    
+    <div class="form-group">
+      <label class="form-label">Correo Electrónico</label>
+      <input
+        type="email"
+        class="form-input"
+        placeholder="tu@email.com"
+      />
+    </div>
+    
+    <div class="form-group">
+      <label class="form-label">Contraseña</label>
+      <div class="password-wrapper">
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          class="form-input"
+          placeholder="••••••••"
+        />
+        <button
+          type="button"
+          (click)="togglePassword()"
+          class="password-toggle"
+        >
+            <mat-icon>
+                
+                {{showPassword ? 'visibility_off' : 'visibility'}}
+            </mat-icon>
+          
+        </button>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="form-label">Confirmar Contraseña</label>
+      <div class="password-wrapper">
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          class="form-input"
+          placeholder="••••••••"
+        />
+        <button
+          type="button"
+          (click)="togglePassword()"
+          class="password-toggle"
+        >
+            <mat-icon>
+                
+                {{showPassword ? 'visibility_off' : 'visibility'}}
+            </mat-icon>
+          
+        </button>
+      </div>
+    </div>
+    
+    <button (click)="handleRegister()" class="btn-modal">
+      Crear Cuenta
+    </button>
+    
+    <p class="modal-footer-text">
+      ¿Ya tienes cuenta?
+      <button (click)="switchToLogin()" class="modal-link">
+        Inicia sesión aquí
+      </button>
+    </p>
+  </div>
+</div>
