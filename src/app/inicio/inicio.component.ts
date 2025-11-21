@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { NgOptimizedImage } from '@angular/common'
 
 interface Feature {
   icon: string;
@@ -24,7 +25,7 @@ interface RegisterData {
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.scss'],
-   imports: [CommonModule,MatIconModule,],
+   imports: [CommonModule,MatIconModule, NgOptimizedImage],
 })
 export class InicioComponent implements OnInit {
   // State variables
@@ -48,22 +49,22 @@ export class InicioComponent implements OnInit {
 
   features: Feature[] = [
     {
-      icon: 'camera',
+      icon: 'camera_alt',
       title: 'Monitoreo 24/7',
       desc: 'Vigilancia continua en tiempo real con cámaras HD'
     },
     {
-      icon: 'bell',
+      icon: 'notifications',
       title: 'Alertas Instantáneas',
       desc: 'Notificaciones inmediatas ante comportamientos inusuales'
     },
     {
-      icon: 'shield',
+      icon: 'security',
       title: 'Detección con IA',
       desc: 'Inteligencia artificial que aprende el comportamiento de tu mascota'
     },
     {
-      icon: 'clock',
+      icon: 'schedule',
       title: 'Historial Completo',
       desc: 'Accede a grabaciones y registros de actividad'
     },
@@ -73,7 +74,7 @@ export class InicioComponent implements OnInit {
       desc: 'Controla todo desde tu smartphone, en cualquier lugar'
     },
     {
-      icon: 'heart',
+      icon: 'favorite',
       title: 'Bienestar Animal',
       desc: 'Diseñado con ética y respeto hacia los animales'
     }

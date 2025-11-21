@@ -28,6 +28,11 @@ body {
   color: $dark-gray;
 }
 
+mat-icon {
+  color: #1b7bba !important; // Cambia el color aquí
+  // font-size: inherit;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -70,9 +75,9 @@ body {
   align-items: center;
   justify-content: center;
 
-  .icon-camera {
-    color: $white;
-    font-size: 1.5rem;
+  .logo-circle .icon-camera {
+  color: $white;
+  font-size: 1.5rem;
   }
 }
 
@@ -243,7 +248,15 @@ body {
 }
 
 .hero-image {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem;
+  }
 }
 
 .hero-card {
