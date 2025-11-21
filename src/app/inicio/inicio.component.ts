@@ -25,7 +25,7 @@ interface RegisterData {
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.scss'],
-   imports: [CommonModule,MatIconModule, NgOptimizedImage],
+   imports: [CommonModule,MatIconModule],
 })
 export class InicioComponent implements OnInit {
   // State variables
